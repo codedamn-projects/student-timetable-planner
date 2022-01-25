@@ -23,6 +23,7 @@ The is no landing page structure, you are free to make a small landing page base
 
 ### Project Flow
 
+![project flow](https://raw.githubusercontent.com/codedamn-projects/student-timetable-planner/master/assets/editing.png)
 ### Register
 
 THe registration functionality should be implemented at  `/register` route.
@@ -35,22 +36,28 @@ The login functionality should be implemented in the `/login` route.
 
 On Successful submission of credentials you have to create and store a JWT token in localStorage for handling the authentication. Every request to the api should share the JWt token to verify the identity of the user, before returning any response. 
 
+### Courses
 
-### Dashboard
+All the available courses should be shown in `/courses` page and student should be able to add courses to his time table and should have a final prompt to add the courses after selection. 
 
-The dashboard should be at URL `/dashboard` 
+NOTE : Each course will contain multiple classes each class led by a different professor. 
+### my-classes page
+
+The student should be able to view his registered courses in the `/my-classes` page along with the number of classes per week. 
+### timetable
+
+The time table of the student should be shown in `/timetable` router. You can implement a calendar widget to show the courses. 
 
 ![dashboard](https://raw.githubusercontent.com/codedamn-projects/linked-in-nextjs-clone/master/designs/Dashboard%20%5BDesktop%5D%20%5BDark%5D.png)
 
+You can use the [react big calendar](https://github.com/jquense/react-big-calendar) library for the calendar component. You are free to any other library or implement it on your own. 
 ### Create Post 
 
 In the create post modal the user should be able to enter their text and Sharing the image URL is optional
 
 ![create post](https://raw.githubusercontent.com/codedamn-projects/linked-in-nextjs-clone/master/designs/Create%20Post%20Modal%20%5BDesktop%5D%20%5BDark%5D.png)
 
-### Post containing the Image 
 
-![post having an image](https://raw.githubusercontent.com/codedamn-projects/linked-in-nextjs-clone/master/designs/Showing%20Image%20in%20Dashboard%20%5BDesktop%5D%20%5BDark%5D.png)
 
 ## API Routes 
 
@@ -67,30 +74,45 @@ The code to be written in `/api/posts/index.js`
 
 Should return the json of the posts, so that they can be shown in the `/dashboard`
 
-### `/api/posts/[id]`
+### GET `/classes/{courseCode}`
 
-Required to delete the post. So on API call the post should be deleted on the database and removed from the UI
+This should return the number of classes in the course. This is should be implemented in `/courses` and on clicking on the course you can open a new page `course/[id]` which will fetch the classes for this course. 
+
+### POST `/classes/{studentId}`
+
+This api should add the class to the student document in the database. 
+
+### GET `class/[studentID]`
+
+This Endpoint should be used to show in the `my-classes` and show it on `/timetable` in the calendar view. 
+
+### DELETE `class/[studentID]/[classID]`
+
+This should remove the student from the course and remove the class from his time table. 
 
 
-### MongoDB user document
+### MongoDB Student document
 ```
-{
-    _id: ObjectId(),
-    name: <string>,
-    email: <string>,
-    password: <string>,
-    timestamp: <date>
+{ "rollNo": "19BCEXXXXX",
+  "name": "Student_Name",
+  "classes":["class1_id", "class2_id"] 
+}
+```
+### MongoDB Class document
+```
+{  "id": "class_id",
+   "courseCode": "CSE1002",
+   "faculty": "Murali Sir",
+   "building": "SJT",
+   "time": "Monday 5pm-6pm" 
 }
 ```
 
 ### MongoDB Post Document
 ```
-{
-    _id: ObjectId(),
-    name: <string>,
-    message: <string>,
-    imageURL: <string>,
-    likes: <int>
+{ 
+    "id": "CSE1002",
+    "name: "OS", 
 }
 ```
 
