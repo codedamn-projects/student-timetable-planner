@@ -48,15 +48,8 @@ The student should be able to view his registered courses in the `/my-classes` p
 
 The time table of the student should be shown in `/timetable` router. You can implement a calendar widget to show the courses. 
 
-![dashboard](https://raw.githubusercontent.com/codedamn-projects/linked-in-nextjs-clone/master/designs/Dashboard%20%5BDesktop%5D%20%5BDark%5D.png)
 
 You can use the [react big calendar](https://github.com/jquense/react-big-calendar) library for the calendar component. You are free to any other library or implement it on your own. 
-### Create Post 
-
-In the create post modal the user should be able to enter their text and Sharing the image URL is optional
-
-![create post](https://raw.githubusercontent.com/codedamn-projects/linked-in-nextjs-clone/master/designs/Create%20Post%20Modal%20%5BDesktop%5D%20%5BDark%5D.png)
-
 
 
 ## API Routes 
