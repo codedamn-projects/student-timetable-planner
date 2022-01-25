@@ -16,7 +16,6 @@ The application should take care of the following aspects:
 -  Students can delete a class from their timetable.
 
 
-
 ### Landing Page
 
 The is no landing page structure, you are free to make a small landing page based on the topic of the project and the page should contain the links for login and registration 
@@ -56,7 +55,7 @@ You can use the [react big calendar](https://github.com/jquense/react-big-calend
 
 ### `/api/auth/signin`
 
-To verify the user credentials on Sign In 
+To verify the user credentials on Sign In, taking the parameters as the roll number and the password 
 
 ### `/api/auth/register` 
 
@@ -67,19 +66,19 @@ The code to be written in `/api/posts/index.js`
 
 Should return the json of the posts, so that they can be shown in the `/dashboard`
 
-### GET `/classes/{courseCode}`
+### GET `api/classes/{courseCode}`
 
 This should return the number of classes in the course. This is should be implemented in `/courses` and on clicking on the course you can open a new page `course/[id]` which will fetch the classes for this course. 
 
-### POST `/classes/{studentId}`
+### POST `/api/classes/{studentId}`
 
 This api should add the class to the student document in the database. 
 
-### GET `class/[studentID]`
+### GET `/api/class/[studentID]`
 
 This Endpoint should be used to show in the `my-classes` and show it on `/timetable` in the calendar view. 
 
-### DELETE `class/[studentID]/[classID]`
+### DELETE `/api/class/[studentID]/[classID]`
 
 This should remove the student from the course and remove the class from his time table. 
 
@@ -88,16 +87,16 @@ This should remove the student from the course and remove the class from his tim
 ```
 { "rollNo": "19BCEXXXXX",
   "name": "Student_Name",
-  "classes":["class1_id", "class2_id"] 
+  "classes":["class1_id", "class2_id"],
+  "password: string (store it as hash using bcrypt)
 }
 ```
 ### MongoDB Class document
 ```
 {  "id": "class_id",
    "courseCode": "CSE1002",
-   "faculty": "Murali Sir",
-   "building": "SJT",
-   "time": "Monday 5pm-6pm" 
+   "faculty": "XXXX",
+   "time":  date object
 }
 ```
 
