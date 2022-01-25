@@ -1,5 +1,6 @@
 # Codedamn Projects - Student's Timetable planner
 
+![header image](https://raw.githubusercontent.com/codedamn-projects/student-timetable-planner/master/assets/main%20image.png)
 ## Hello developer!
 
 This is one of the many projects available on [codedamn](https://codedamn.com/projects) to reinforce your learning by building. If you want to become a full stack developer and learn by practicing, feel free to attempt this challenge. Feel free to check out the codedamn [Full Stack Web Development Learning Path](https://codedamn.com/learning-paths/fullstack) to learn more about how to become an awesome full stack developer.
@@ -59,12 +60,8 @@ To verify the user credentials on Sign In, taking the parameters as the roll num
 
 ### `/api/auth/register` 
 
-To register a new user and add the document to the database
-### `/api/posts`
+To register a new student and add the document to the database
 
-The code to be written in `/api/posts/index.js`
-
-Should return the json of the posts, so that they can be shown in the `/dashboard`
 
 ### GET `api/classes/{courseCode}`
 
@@ -115,7 +112,7 @@ The Codedamn Playgrounds exposes only `1337` and `1338` ports on the internet. S
 
 1. Mongoose for mongodb object modelling and effective type system 
 1. Tailwind CSS for User Interface
-1. `@mui/icons-material`. You can use their [website](https://mui.com/components/material-icons/) to pick up icons for the project. 
+1. `@mui/icons-material`. You can use their [website](https://mui.com/components/material-icons/) to pick up icons for the project.
 
 There is no restriction for using mui, you can free to choose any other icons for your project.
 
