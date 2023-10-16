@@ -1,3 +1,3 @@
-tabs: ["pages/index.ts"]
-terminals: ["pnpm install && pnpm dev"]
-run-button: pnpm dev
+tabs: ["src/pages/index.tsx"]
+terminals: ["bun install && bun dev"]
+run-button: bun dev
