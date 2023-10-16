@@ -1,0 +1,50 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-kysely"
+
+  output = "../src/db"
+    fileName = "types.ts"
+    // Optionally generate runtime enums to a separate file
+    enumFileName = "enums.ts"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id    Int @unique
+  name String
+}
+
+model Student {
+  uniqueId String @id
+  rollNo Int @unique
+  name String
+  password String
+}
+
+model Course {
+  uniqueId String @id
+  courseCode String
+  name String
+  faculty String 
+  courseSchedules CourseSchedule[] @relation("CourseScheduleCourse")
+}
+
+model CourseSchedule {
+  uniqueId String @id
+
+  courseId String
+  course Course @relation("CourseScheduleCourse",fields: [courseId], references: [uniqueId])
+
+  startTime DateTime
+  
+  durationInMinutes Int
+
+}
+
+// Make more changes to the Schema as required
