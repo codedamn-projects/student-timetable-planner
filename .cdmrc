@@ -1,3 +1,3 @@
 tabs: ["src/pages/index.tsx"]
-terminals: ["bun install && bun dev"]
-run-button: bun dev
+terminals: ["npm install && npm run dev"]
+run-button: npm dev
